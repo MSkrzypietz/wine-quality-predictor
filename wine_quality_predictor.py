@@ -28,3 +28,6 @@ pipeline = make_pipeline(preprocessing.StandardScaler(),
 
 hyperparameters = {'randomforestregressor__max_features': ['auto', 'sqrt', 'log2'],
                    'randomforestregressor__max_depth': [None, 5, 3, 1]}
+
+clf = GridSearchCV(pipeline, hyperparameters, cv=10)
+clf.fit(X_train, y_train)
