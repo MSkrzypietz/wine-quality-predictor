@@ -31,3 +31,9 @@ hyperparameters = {'randomforestregressor__max_features': ['auto', 'sqrt', 'log2
 
 clf = GridSearchCV(pipeline, hyperparameters, cv=10)
 clf.fit(X_train, y_train)
+
+pred = clf.predict(X_test)
+print(r2_score(y_test, pred))
+print(mean_squared_error(y_test, pred))
+
+joblib.dump(clf, 'rf_regressor.pkl')
