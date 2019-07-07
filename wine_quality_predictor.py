@@ -25,3 +25,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y,
 scaler = preprocessing.StandardScaler().fit(X_train)
 pipeline = make_pipeline(preprocessing.StandardScaler(),
                          RandomForestRegressor(n_estimators=100))
+
+hyperparameters = {'randomforestregressor__max_features': ['auto', 'sqrt', 'log2'],
+                   'randomforestregressor__max_depth': [None, 5, 3, 1]}
